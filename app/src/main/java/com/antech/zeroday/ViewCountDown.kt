@@ -22,8 +22,10 @@ class ViewCountDown : AppCompatActivity() {
             val message: String = etUserMessage.text.toString()
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 
-            val intention = Intent(this, ReceivingMessage::class.java)
-            startActivity(intention)
+            // now go into the second activity, passing in the user input
+            val intent = Intent(this, ReceivingMessage::class.java)
+            intent.putExtra("user_message", message)
+            startActivity(intent)
         }
     }
 }
